@@ -17,6 +17,9 @@ class FaceGrindingTime
     #[ORM\JoinColumn(nullable: false)]
     private ?ToolGeometry $toolGeometry = null;
 
+    #[ORM\Column]
+    private ?int $minutes = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -30,6 +33,18 @@ class FaceGrindingTime
     public function setToolGeometry(ToolGeometry $toolGeometry): static
     {
         $this->toolGeometry = $toolGeometry;
+
+        return $this;
+    }
+
+    public function getMinutes(): ?int
+    {
+        return $this->minutes;
+    }
+
+    public function setMinutes(int $minutes): static
+    {
+        $this->minutes = $minutes;
 
         return $this;
     }
